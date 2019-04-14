@@ -41,12 +41,16 @@ public class Character : MonoBehaviour
             float rd = Random.Range(0.45f, 1f);
             myColor = new Color(1, rd, rd, 1);
         }
+        SetColor(c_noSin);
     }
 
     private void SetColor(Color _color)
     {
-        mat.SetColor("_Color", _color);
-        mr.material = mat;
+        if(mat)
+        {
+            mat.SetColor("_Color", _color);
+            mr.material = mat;
+        }
     }
 
     public void ExposeColor()

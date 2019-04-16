@@ -16,6 +16,7 @@ public class CharacterGenerator : MonoBehaviour
             go.transform.parent = transform;
             go.name = "char_" + i;
             go.gameObject.SetActive(false);
+            go.GetComponent<Character>().bTargeted = false;
             charaPool.Add(go.GetComponent<Character>());
         }
     }
@@ -56,7 +57,7 @@ public class CharacterGenerator : MonoBehaviour
             if (!item.gameObject.activeInHierarchy)
             {
                 item.gameObject.SetActive(true);
-              
+             
                 item.InitData(head_end[0].GetRandomDestination(), head_end[1].GetRandomDestination(), Random.Range(0, 2) == 0, fSpeedOffset + Random.Range(1, 5f));
                 return;
             }
